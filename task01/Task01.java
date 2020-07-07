@@ -1,6 +1,4 @@
 package by.epamtc.mtv.viaryshko.thirdtask.task01;
-import java.util.Arrays;
-
 //Даны действительные числа . Найти max
 
 public class Task01 {
@@ -11,10 +9,11 @@ public class Task01 {
 
     public Task01(int size) {
         this.size = size;
+
         if (isEvenSize()) {
             array = new double[size];
             arrayForAmount = new double[size / 2];
-            System.out.println(Arrays.toString(fillArray()));
+            printArray(fillArray());
         } else {
             System.out.println("Введите корректный размер");
         }
@@ -33,8 +32,18 @@ public class Task01 {
         return array;
     }
 
+    //печать массива
+    public static void printArray( double [] arrayForPrint){
+
+        for (double value : arrayForPrint) {
+
+            System.out.print(value + "\t");
+        }
+        System.out.println();
+    }
+
     //заполнение массива суммами
-    public double[] fillArrayForAmount() {
+    public double[] fillArrayForAmounts() {
         for (int i = 0; i < array.length / 2; i++) {
             arrayForAmount[i] = array[i] + array[array.length - 1 - i];
         }
@@ -42,7 +51,7 @@ public class Task01 {
     }
 
     //нахождение максимального значения
-    public double getMaxValue() {
+    public double receiveMaxValue() {
         double max = arrayForAmount[0];
 
         for (double value : arrayForAmount) {

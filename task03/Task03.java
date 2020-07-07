@@ -1,6 +1,5 @@
 package by.epamtc.mtv.viaryshko.thirdtask.task03;
-
-import java.util.Arrays;
+import by.epamtc.mtv.viaryshko.thirdtask.task02.Task02;
 
 //. «Суперзамок». Секретный замок для сейфа состоит из 10 расположенных в рад ячеек,
 // в которые надо вставить игральные кубики. Но дверь открывается только в том случае,
@@ -30,12 +29,11 @@ public class Task03 {
         } else if (isUnrealToGetCode()) {
             System.out.println("Ключ невозможно сгенерировать!");
         } else {
-            System.out.println(Arrays.toString(array));
-            getKey();
+            receiveKey();
            if(!isValidKey() || isHaveNull()){
                 System.out.println("Ключ невозможно сгенерировать!");
             }else{
-            printArray();
+               Task02.printArray(array);
             }
         }
     }
@@ -61,7 +59,7 @@ public class Task03 {
     }
 
     //получение ключа
-    private int[] getKey() {
+    private int[] receiveKey() {
 
         int numberForCheck;
         if (indexForSecond - indexForFirst == 2) {
@@ -127,13 +125,6 @@ public class Task03 {
     //проврка суммы трёх последних членов
     private boolean isValidKey() {
         return array[array.length - 1] + array[array.length - 2] + array[array.length - 3] == 10;
-    }
-
-
-    public void printArray() {
-        for (int value : array) {
-            System.out.print(value + "\t");
-        }
     }
 
 }

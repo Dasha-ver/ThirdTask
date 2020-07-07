@@ -1,30 +1,27 @@
 package by.epamtc.mtv.viaryshko.thirdtask.task02;
 
-import java.util.Arrays;
-
 //Дана последовательность целых чисел . Образовать новую последовательность, выбросив из исходной те члены, которые равны  min.
+
 public class Task02 {
 
     private int[] array;
     private int size;
 
     public Task02(int size) {
-
         this.size = size;
+
         if (isValidSize()) {
             array = new int[size];
-            System.out.println(Arrays.toString(fillArray()));
+            printArray(fillArray());
         } else {
             System.out.println("Введите корректный размер");
         }
-
     }
 
     //проверка размера массива
     private boolean isValidSize() {
         return size > 0;
     }
-
 
     //заполнение массива числами
     private int[] fillArray() {
@@ -34,8 +31,18 @@ public class Task02 {
         return array;
     }
 
+    //печать массива
+    public static void printArray( int [] arrayForPrint){
+
+        for (int value : arrayForPrint) {
+
+            System.out.print(value + "\t");
+        }
+        System.out.println();
+    }
+
     //нахождение минимального значения
-    public int getMinValue() {
+    public int receiveMinValue() {
 
         int min = array[0];
 
@@ -48,11 +55,11 @@ public class Task02 {
     }
 
     //новая последовательность
-    public void getSequenceWithoutMin() {
+    public void receiveSequenceWithoutMin() {
 
         for (int value : array) {
 
-            if (value == getMinValue()) {
+            if (value == receiveMinValue()) {
                 continue;
             } else {
                 System.out.print(value + " ");

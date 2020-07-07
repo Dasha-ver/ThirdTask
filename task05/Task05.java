@@ -1,6 +1,6 @@
 package by.epamtc.mtv.viaryshko.thirdtask.task05;
 
-import java.util.Arrays;
+import by.epamtc.mtv.viaryshko.thirdtask.task01.Task01;
 
 //Дан одномерный массив A[N]. Найти:
 
@@ -15,7 +15,7 @@ public class Task05 {
 
         if (isEvenSize()) {
             array = new double[size];
-            System.out.println(Arrays.toString(fillArray()));
+            Task01.printArray(fillArray());
         } else {
             System.out.println("Введите корректный размер");
         }
@@ -35,7 +35,7 @@ public class Task05 {
     }
 
     //нахождения суммы
-    public double getResult() {
+    public double receiveResult() {
         double max = array[1];
         double min = array[0];
         for (int i = 0; i < array.length; i++) {

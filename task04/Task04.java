@@ -1,5 +1,5 @@
 package by.epamtc.mtv.viaryshko.thirdtask.task04;
-import java.util.Arrays;
+import by.epamtc.mtv.viaryshko.thirdtask.task02.Task02;
 
 //В массиве целых чисел с количеством элементов n найти наиболее часто встречающееся число.
 // Если таких чисел несколько, то определить наименьшее из них.
@@ -19,7 +19,7 @@ public class Task04 {
             array = new int[size];
             arrayForCounter = new int[size];
             arrayForMaxValue = new int[size];
-            System.out.println(Arrays.toString(fillArray()));
+            Task02.printArray(fillArray());
         } else {
             System.out.println("Введите корректный размер");
         }
@@ -39,7 +39,7 @@ public class Task04 {
     }
 
     //заполняем массив значениями встречаемости чисел
-    public int[] getArrayForCounter() {
+    public int[] receiveArrayForCounter() {
 
         int counter = 0;
         for (int i = 0; i < array.length; i++) {
@@ -70,7 +70,7 @@ public class Task04 {
     }
 
     //находим максимальное число
-    public int getMax() {
+    public int receiveMax() {
 
         int max = arrayForCounter[0];
         for (int i = 0; i < arrayForCounter.length; i++) {
@@ -84,23 +84,19 @@ public class Task04 {
     }
 
     //количество максимально повторяющихся элементов
-    public int getCounterForMax() {
+    public int receiveCounterForMax() {
 
         int counterForMax = 0;
         for (int value : arrayForCounter) {
-            if (getMax() == value) {
+            if (receiveMax() == value) {
                 counterForMax++;
             }
         }
         return counterForMax;
     }
 
-    public void getIndexForMax() {
-
-    }
-
     //находим минимальное значение
-    public int getMinValue(int[] arrayForMin) {
+    public int receiveMinValue(int[] arrayForMin) {
 
         int min = arrayForMin[0];
         for (int value : arrayForMin) {
@@ -113,17 +109,17 @@ public class Task04 {
     }
 
 
-    public int getResult() {
+    public int receiveResult() {
 
         int min = 0;
 
         if (!isHaveRepeat()) {
-            return getMinValue(array);
-        } else if (getCounterForMax() == 1) {
+            return receiveMinValue(array);
+        }else if (receiveCounterForMax() == 1) {
             return array[index];
         } else {
             for (int i = 0; i < arrayForCounter.length; i++) {
-                if (arrayForCounter[i] == getMax()) {
+                if (arrayForCounter[i] == receiveMax()) {
                     arrayForMaxValue[i] = array[i];
                 }
             }
@@ -131,12 +127,11 @@ public class Task04 {
             min = arrayForMaxValue[0];
             for (int i = 0; i < arrayForMaxValue.length; i++) {
 
-                if (min > arrayForMaxValue[i] && arrayForMaxValue[i] != 0) {
+                if (min > arrayForMaxValue[i]){
                     min = arrayForMaxValue[i];
                 }
             }
             return min;
         }
-
     }
 }
